@@ -9,6 +9,8 @@ TagManager:
   - panel
   - Groundd
   - core
+  - ground
+  - movingGround
   layers:
   - Default
   - TransparentFX

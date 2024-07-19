@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class movingGround : MonoBehaviour
@@ -9,25 +11,77 @@ public class movingGround : MonoBehaviour
     Vector3 position;
     public float waitingTime;
     float time;
+  [SerializeField]  bool on = false;
+
+    public bool oneWay;
     // Start is called before the first frame update
     void Start()
     {
 
     }
+    bool maybe = false;
+    bool canMove = true;
     private void Update()
     {
-        if (Mathf.Abs(Vector3.Magnitude(transform.position - position)) >= range)
+        maybe = false;
+        on = false;
+        foreach(triggers triggerEle in triggers)
+        {
+            if(triggerEle.Must)
+            {
+                if(!triggerEle.theTrigger.on)
+                {
+                    on = false;
+                    return;
+                    
+                }
+                else
+                {
+                    on = true;
+
+                }
+
+            }
+            else
+            {
+                if (triggerEle.theTrigger.on)
+                {
+                    maybe = true;
+                    Debug.Log("it is on");
+
+                    break;
+
+                }
+                
+            }
+        }
+        Debug.Log(maybe);
+        if(maybe || on)
+        {
+            Debug.Log("it is on here too");
+
+            on = true;
+        }
+        if (Mathf.Abs(Vector3.Magnitude(transform.position - position)) >= range )
         {
             speed = -speed;
             position = transform.position;
             time = Time.time;
 
+            if(oneWay)
+            {
+                canMove = false;
+            }
         }
     }
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Time.time - time >= waitingTime)
+        if(!on)
+        {
+            return;
+        }
+        if (Time.time - time >= waitingTime && canMove)
         {
 
             if (horizontal)
@@ -43,21 +97,61 @@ public class movingGround : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    
+    public float dampingRatio, frequincy;
+    public triggers[] triggers;
+    /// <summary>
+    /// send the rigidbody of the core
+    /// </summary>
+    /// <param name="rb"></param>
+    public void stick(Rigidbody2D rb)
     {
-        if (collision.collider.CompareTag("Player"))
-        {
-            collision.collider.transform.parent.parent = transform;
-        }
+
+        //Debug.Log("eneterd");
+        ////adding the joint to the player and connecting it 
+        //SpringJoint2D xx = gameObject.AddComponent<SpringJoint2D>();
+
+        //xx.connectedBody = rb;
+        //xx.autoConfigureConnectedAnchor = false;
+        //xx.connectedAnchor = rb.transform.position;
+        //xx.autoConfigureDistance = true;
+
+        //xx.dampingRatio = dampingRatio;
+        //xx.frequency = frequincy;
 
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    /// <summary>
+    /// send the rigidbody of the core
+    /// </summary>
+    /// <param name="rb"></param>
+    public void unstick(Rigidbody2D rb)
     {
-        if (collision.collider.CompareTag("Player"))
-        {
-            collision.collider.transform.parent.parent = null;
-        }
 
+
+
+        //Debug.Log("left");
+        
+        //SpringJoint2D[] springs = GetComponentsInChildren<SpringJoint2D>();
+        //foreach (SpringJoint2D spring in springs)
+        //{
+        //    if (rb == spring.connectedBody)
+        //    {
+        //        Destroy(spring);
+        //        return;
+        //    }
+        //}
     }
+
+
+}
+[Serializable]
+public class triggers
+{
+    
+
+    public bool Must;
+    
+
+    public trigger theTrigger;
 }

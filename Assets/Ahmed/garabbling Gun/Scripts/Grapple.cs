@@ -80,25 +80,7 @@ public class Grapple : MonoBehaviour
 
 
 
-        GameObject playerCore = Instantiate(gameObject,transform);
-        playerCore.layer = 10;
-        playerCore.transform.localPosition = Vector3.zero;
-        playerCore.transform.SetParent(null, true);
-        try
-        {
-
-            playerCore.GetComponent<movement>().enabled = false;
-            playerCore.GetComponent<collision>().enabled = false;
-            playerCore.GetComponent<Grapple>().enabled = false;
-            for (int i = 0; i < playerCore.transform.childCount; i++)
-            {
-
-                Destroy(playerCore.transform.GetChild(i).gameObject);
-            }
-
-        }
-        catch (Exception e) { Debug.LogWarning(e); }
-
+       
 
 
 
@@ -110,31 +92,11 @@ public class Grapple : MonoBehaviour
 
 
         //di attach the the line froom the player and creat an isntantiate of the core of the player with disabling the movement and destroying its childs and the set it as target for the rop
-        lines[0].ditatch(playerCore.transform);
+        Destroy(lines[0].gameObject);
         lines.RemoveAt(0);
     }
 
-    Vector2 centriod(Vector2[] points)
-    {
-        Vector2 center = Vector2.zero;
-        foreach (Vector2 point in points)
-        {
-            center += point;
-        }
-        center /= points.Length;
-        return center;
-    }
+    
 
-    private void OnDrawGizmos()
-    {
-        Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 direction = (mousePos - (Vector2)transform.position).normalized;
-
-        Gizmos.DrawLine(transform.position, (Vector2)transform.position + direction);
-
-        foreach (Vector2 point in points)
-        {
-            Gizmos.DrawLine(transform.position, point);
-        }
-    }
+   
 }

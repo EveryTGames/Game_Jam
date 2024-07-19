@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 2691397831255457491}
   - component: {fileID: 153228920923925228}
   - component: {fileID: 685125769628074868}
+  - component: {fileID: 7133288326052656356}
   m_Layer: 8
-  m_Name: the final player
+  m_Name: the final player 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 247856204040905532}
@@ -141,8 +142,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisPlayerColor: 2
-  numberOfSplitestsLeft: 3
-  slime: {fileID: 1113839398784001790, guid: 266f70ee6089a204882ec98bf46433d2, type: 3}
+  numberOfSplitestsLeft: 0
+  slime: {fileID: 1113839398784001790, guid: b92163e587771ad4c9f4d212739f0dfd, type: 3}
+  isTheActive: 0
   dashspeedAfterSplit: 40000
   changeTime: 0.1
 --- !u!58 &685125769628074868
@@ -154,13 +156,13 @@ CircleCollider2D:
   m_GameObject: {fileID: 1113839398784001790}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9a5a300620c882e459c727fa21213fe6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2304
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 767
+    m_Bits: 1791
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -180,6 +182,19 @@ CircleCollider2D:
   m_Offset: {x: 0.00021000206, y: 0.000014990568}
   serializedVersion: 2
   m_Radius: 0.18
+--- !u!114 &7133288326052656356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113839398784001790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 883418700dae75545a2e74c721757eab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPlayerColor: 0
 --- !u!1 &2718410208933467469
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,7 +488,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9a5a300620c882e459c727fa21213fe6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -500,7 +515,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.028336728, y: 0.074280046}
+  m_ConnectedAnchor: {x: 0.028337, y: 0.07428021}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -521,7 +536,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.08258447, y: -0.03289905}
+  m_ConnectedAnchor: {x: -0.08258449, y: -0.03289889}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -542,7 +557,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.0319591, y: -0.07383035}
+  m_ConnectedAnchor: {x: 0.031959116, y: -0.07383035}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -580,7 +595,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1582
+  m_InstanceId: -170754
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -672,7 +687,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9a5a300620c882e459c727fa21213fe6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -699,7 +714,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.04094128, y: 0.07484649}
+  m_ConnectedAnchor: {x: 0.040941264, y: 0.074846484}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -720,7 +735,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.047342002, y: -0.13276541}
+  m_ConnectedAnchor: {x: 0.047341987, y: -0.13276526}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -741,7 +756,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.0060899127, y: -0.088075355}
+  m_ConnectedAnchor: {x: 0.0060901893, y: -0.08807518}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -779,7 +794,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1550
+  m_InstanceId: -170722
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -871,7 +886,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9a5a300620c882e459c727fa21213fe6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -898,7 +913,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.02046842, y: 0.05842497}
+  m_ConnectedAnchor: {x: 0.020468418, y: 0.058424927}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -919,7 +934,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.12883835, y: 0.09468933}
+  m_ConnectedAnchor: {x: 0.12883832, y: 0.09468934}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -940,7 +955,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.03527465, y: -0.09319469}
+  m_ConnectedAnchor: {x: 0.03527466, y: -0.09319453}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -978,7 +993,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1662
+  m_InstanceId: -170834
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -1070,7 +1085,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9a5a300620c882e459c727fa21213fe6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1097,7 +1112,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.059918027, y: 0.07962028}
+  m_ConnectedAnchor: {x: 0.059917882, y: 0.07962019}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -1118,7 +1133,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.026088338, y: -0.10164796}
+  m_ConnectedAnchor: {x: 0.02608834, y: -0.101647936}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -1139,7 +1154,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.16324046, y: 0.0011690382}
+  m_ConnectedAnchor: {x: 0.16324045, y: 0.0011691974}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -1177,7 +1192,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1518
+  m_InstanceId: -170690
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -1269,7 +1284,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9a5a300620c882e459c727fa21213fe6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1296,7 +1311,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.037139248, y: -0.07680406}
+  m_ConnectedAnchor: {x: 0.037139248, y: -0.07680405}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -1317,7 +1332,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.1244963, y: -0.096359394}
+  m_ConnectedAnchor: {x: 0.12449628, y: -0.09635924}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -1338,7 +1353,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.037830975, y: 0.097886264}
+  m_ConnectedAnchor: {x: 0.037830967, y: 0.09788626}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -1376,7 +1391,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1534
+  m_InstanceId: -170706
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -1468,7 +1483,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9a5a300620c882e459c727fa21213fe6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1495,7 +1510,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.015801705, y: 0.061953157}
+  m_ConnectedAnchor: {x: 0.015801592, y: 0.06195327}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -1516,7 +1531,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.018951891, y: 0.111723386}
+  m_ConnectedAnchor: {x: 0.018951895, y: 0.11172339}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -1537,7 +1552,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.000476704, y: -0.05078356}
+  m_ConnectedAnchor: {x: -0.00047670398, y: -0.050783556}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -1575,7 +1590,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1630
+  m_InstanceId: -170802
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -1667,7 +1682,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9a5a300620c882e459c727fa21213fe6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1694,7 +1709,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.03765115, y: 0.07985452}
+  m_ConnectedAnchor: {x: 0.03765083, y: 0.07985451}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -1715,7 +1730,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.032150265, y: -0.0943554}
+  m_ConnectedAnchor: {x: -0.032150272, y: -0.09435556}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -1736,7 +1751,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.035535026, y: -0.071117915}
+  m_ConnectedAnchor: {x: 0.03553496, y: -0.07111822}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -1774,7 +1789,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1566
+  m_InstanceId: -170738
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -1866,7 +1881,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9a5a300620c882e459c727fa21213fe6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1893,7 +1908,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.005280223, y: 0.046873387}
+  m_ConnectedAnchor: {x: 0.005280418, y: 0.04687314}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -1914,7 +1929,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.03782831, y: 0.082331315}
+  m_ConnectedAnchor: {x: -0.037828322, y: 0.08233116}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -1935,7 +1950,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.024240395, y: -0.05916326}
+  m_ConnectedAnchor: {x: 0.02424055, y: -0.05916328}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -1973,7 +1988,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1614
+  m_InstanceId: -170786
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -2065,7 +2080,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9a5a300620c882e459c727fa21213fe6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2092,7 +2107,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.0031718228, y: 0.050686654}
+  m_ConnectedAnchor: {x: 0.0031718225, y: 0.050686646}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -2113,7 +2128,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.06972009, y: 0.11305948}
+  m_ConnectedAnchor: {x: 0.0697201, y: 0.11305949}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -2134,7 +2149,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.016625566, y: -0.059632406}
+  m_ConnectedAnchor: {x: 0.016625548, y: -0.05963237}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -2172,7 +2187,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1646
+  m_InstanceId: -170818
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -2264,7 +2279,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9a5a300620c882e459c727fa21213fe6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2291,7 +2306,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.03157414, y: 0.073995814}
+  m_ConnectedAnchor: {x: 0.031574126, y: 0.073995814}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -2312,7 +2327,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.06822238, y: 0.046259236}
+  m_ConnectedAnchor: {x: -0.06822242, y: 0.046259396}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -2333,7 +2348,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.006732557, y: -0.046686918}
+  m_ConnectedAnchor: {x: 0.0067323036, y: -0.046686728}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -2371,7 +2386,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1598
+  m_InstanceId: -170770
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -2464,7 +2479,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 3
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9a5a300620c882e459c727fa21213fe6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2489,8 +2504,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallJumping: 0
   dashTime: 0.4
-  dashSpeed: 100
-  dashDrag: 4.5
+  dashSpeed: 60
+  dashDrag: 0.01
   wallJumpTime: 0.7
   jumpLerp: 5
   jumpSpeed: 45
@@ -2545,5 +2560,5 @@ MonoBehaviour:
   grappleLength: 100
   maxPoints: 3
   dampingRatio: 0
-  frequincy: 1.5
+  frequincy: 1.2
   distance: 0.1

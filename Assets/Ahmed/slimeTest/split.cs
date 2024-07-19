@@ -23,17 +23,17 @@ public class ActivePlayer
         {
             if ((ac == colors.red || ac == colors.green) && (bc == colors.red || bc == colors.green))
             {
-                return  colors.yellow ;
+                return colors.yellow;
 
             }
             if ((ac == colors.red || ac == colors.blue) && (bc == colors.red || bc == colors.blue))
             {
-                return colors.purble ;
+                return colors.purble;
 
             }
             if ((ac == colors.green || ac == colors.blue) && (bc == colors.green || bc == colors.blue))
             {
-                return  colors.cyan ;
+                return colors.cyan;
 
             }
             else
@@ -43,7 +43,7 @@ public class ActivePlayer
         }
         else
         {
-            return  ac ;
+            return ac;
         }
 
     }
@@ -58,11 +58,12 @@ public class split : MonoBehaviour
 
     static Transform playersParent;
     Collider2D c2D;
+    public bool isTheActive = false;
     // Start is called before the first frame update
     void Start()
     {
 
-        if (activePlayer.activePlayerObject == null)
+        if (activePlayer.activePlayerObject == null && isTheActive)
         {
 
             activePlayer.activePlayerObject = gameObject;
@@ -78,7 +79,8 @@ public class split : MonoBehaviour
     void Update()
     {
         if (activePlayer.activePlayerObject != gameObject)
-        {
+        { //no active
+            isTheActive = false;
             try
             {
 
@@ -92,20 +94,21 @@ public class split : MonoBehaviour
             return;
         }
         else
-        {
+        {//active
             activePlayer.activePlayerColor = thisPlayerColor;
+            isTheActive = true;
         }
-        if(activePlayer.activePlayerObject == gameObject)
+        if (activePlayer.activePlayerObject == gameObject)
         {
-            if(Input.GetKeyDown(KeyCode.Alpha1))
+            if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 thisPlayerColor = ActivePlayer.colors.red;
             }
-            if(Input.GetKeyDown(KeyCode.Alpha2))
+            if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 thisPlayerColor = ActivePlayer.colors.blue;
             }
-            if(Input.GetKeyDown(KeyCode.Alpha3))
+            if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 thisPlayerColor = ActivePlayer.colors.green;
             }
@@ -132,7 +135,7 @@ public class split : MonoBehaviour
                 activePlayer.activePlayerObject.transform.GetChild(transform.childCount - 1).GetComponent<movement>().enabled = true;
                 activePlayer.activePlayerObject.transform.GetChild(transform.childCount - 1).GetComponent<collision>().enabled = true;
                 activePlayer.activePlayerObject.transform.GetChild(transform.childCount - 1).GetComponent<Grapple>().enabled = true;
-                
+
 
             }
             catch { }
@@ -157,9 +160,20 @@ public class split : MonoBehaviour
 
             if (collider.transform.parent != transform)
             {
-                possibleToJoin = collider.transform.parent.GetChild(transform.childCount - 1);
+                if (collider.CompareTag("core"))
+                {
 
+                    possibleToJoin = collider.transform.parent.GetChild(transform.childCount - 1);
+                    return;
+                }
             }
+            //part for the moveing ground
+            if (collider.CompareTag("movingGround"))
+            {
+                collider.GetComponent<movingGround>().stick(transform.GetChild(transform.childCount - 1).GetComponent<Rigidbody2D>());
+                return;
+
+            }     //                                                                                                     ^the rigidbody2d component of the core
         }
 
     }
@@ -174,7 +188,17 @@ public class split : MonoBehaviour
                     possibleToJoin = null;
 
                 }
+                return;
+
             }
+
+            //part fort hte moving ground
+            if (collider.CompareTag("movingGround"))
+            {
+                collider.GetComponent<movingGround>().unstick(transform.GetChild(transform.childCount - 1).GetComponent<Rigidbody2D>());
+                return;
+
+            }     //                                                                                                     ^the rigidbody2d component of the core
 
         }
 
