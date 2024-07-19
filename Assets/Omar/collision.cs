@@ -16,25 +16,41 @@ public class collision : MonoBehaviour
         
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        var poistions = new Vector2[] { bottomOffSet, rightOffset, leftOffset };
-        Gizmos.DrawWireSphere((Vector2)transform.position + bottomOffSet, collisionRadius);
-        Gizmos.DrawWireSphere((Vector2)transform.position + rightOffset, collisionRadius);
-        Gizmos.DrawWireSphere((Vector2)transform.position + leftOffset, collisionRadius);
-        Gizmos.DrawWireSphere((Vector2)transform.position + upOffset, collisionRadius);
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+    //    var poistions = new Vector2[] { bottomOffSet, rightOffset, leftOffset };
+    //    Gizmos.DrawWireSphere((Vector2)transform.position + bottomOffSet, collisionRadius);
+    //    Gizmos.DrawWireSphere((Vector2)transform.position + rightOffset, collisionRadius);
+    //    Gizmos.DrawWireSphere((Vector2)transform.position + leftOffset, collisionRadius);
+    //    Gizmos.DrawWireSphere((Vector2)transform.position + upOffset, collisionRadius);
 
 
-    }
+    //}
     void Update()
     {
         onGround = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffSet, collisionRadius, groundLayer);
-        onWall = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, wallLayer) ||
-            Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, wallLayer);
-
-        onLeftWall = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, wallLayer);
-        onRightWall = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, wallLayer);
-
+       
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Groundd"))
+        {
+            onGround = true;
+        }
+    }
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("Groundd"))
+        {
+            onGround = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Groundd"))
+        {
+            onGround = false;
+        }
     }
 }

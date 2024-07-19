@@ -223,7 +223,7 @@ Transform:
   m_GameObject: {fileID: 2718410208933467469}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.040594846, w: 0.9991758}
-  m_LocalPosition: {x: 0.038, y: -0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -291,6 +291,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73981346143eafe43a8e670f33970a25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outerRaduis: 0.78
+  startScale: 4
 --- !u!114 &5209746066715752010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,6 +317,7 @@ GameObject:
   - component: {fileID: 5028468020228427474}
   - component: {fileID: 7482759161875292099}
   - component: {fileID: 451639460917257546}
+  - component: {fileID: 6472484489122700105}
   m_Layer: 8
   m_Name: Light 2D (1)
   m_TagString: Untagged
@@ -331,7 +334,7 @@ Transform:
   m_GameObject: {fileID: 3363874430558722565}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.033072557, w: 0.99945295}
-  m_LocalPosition: {x: 0.038, y: -0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -400,6 +403,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beForActive: 0
+--- !u!114 &6472484489122700105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3363874430558722565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73981346143eafe43a8e670f33970a25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outerRaduis: 1.311806
+  startScale: 4
 --- !u!1 &4336017345611051880
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,7 +505,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 9a5a300620c882e459c727fa21213fe6, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -536,7 +553,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.08258449, y: -0.03289889}
+  m_ConnectedAnchor: {x: -0.12558448, y: -0.03289889}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -595,7 +612,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -170754
+  m_InstanceId: -8840
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -687,7 +704,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 9a5a300620c882e459c727fa21213fe6, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -735,7 +752,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.047341987, y: -0.13276526}
+  m_ConnectedAnchor: {x: 0.0043419963, y: -0.13276526}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -794,7 +811,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -170722
+  m_InstanceId: -8808
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -886,7 +903,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 9a5a300620c882e459c727fa21213fe6, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -934,7 +951,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.12883832, y: 0.09468934}
+  m_ConnectedAnchor: {x: 0.085838325, y: 0.09468934}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -993,7 +1010,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -170834
+  m_InstanceId: -8920
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -1085,7 +1102,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 9a5a300620c882e459c727fa21213fe6, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1154,7 +1171,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.16324045, y: 0.0011691974}
+  m_ConnectedAnchor: {x: 0.12024045, y: 0.0011691992}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -1192,7 +1209,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -170690
+  m_InstanceId: -8776
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -1284,7 +1301,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 9a5a300620c882e459c727fa21213fe6, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1332,7 +1349,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.12449628, y: -0.09635924}
+  m_ConnectedAnchor: {x: 0.08149628, y: -0.09635923}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -1391,7 +1408,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -170706
+  m_InstanceId: -8792
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -1483,7 +1500,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 9a5a300620c882e459c727fa21213fe6, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1531,7 +1548,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.018951895, y: 0.11172339}
+  m_ConnectedAnchor: {x: -0.0240481, y: 0.11172339}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -1590,7 +1607,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -170802
+  m_InstanceId: -8888
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -1682,7 +1699,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 9a5a300620c882e459c727fa21213fe6, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1730,7 +1747,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.032150272, y: -0.09435556}
+  m_ConnectedAnchor: {x: -0.075150274, y: -0.09435556}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -1789,7 +1806,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -170738
+  m_InstanceId: -8824
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -1881,7 +1898,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 9a5a300620c882e459c727fa21213fe6, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1929,7 +1946,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.037828322, y: 0.08233116}
+  m_ConnectedAnchor: {x: -0.08082832, y: 0.08233116}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -1988,7 +2005,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -170786
+  m_InstanceId: -8872
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -2080,7 +2097,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 9a5a300620c882e459c727fa21213fe6, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2128,7 +2145,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.0697201, y: 0.11305949}
+  m_ConnectedAnchor: {x: 0.026720105, y: 0.11305949}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -2187,7 +2204,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -170818
+  m_InstanceId: -8904
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -2279,7 +2296,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 9a5a300620c882e459c727fa21213fe6, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2327,7 +2344,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.06822242, y: 0.046259396}
+  m_ConnectedAnchor: {x: -0.11122241, y: 0.046259396}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.4
@@ -2386,7 +2403,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -170770
+  m_InstanceId: -8856
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -2420,7 +2437,7 @@ Transform:
   m_GameObject: {fileID: 8949764515810733025}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.043, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2457,12 +2474,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.04, y: 0}
   serializedVersion: 2
-  m_Radius: 0.04
+  m_Radius: 0.16
 --- !u!50 &3158796849367387334
 Rigidbody2D:
   serializedVersion: 4
@@ -2479,7 +2496,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 3
-  m_Material: {fileID: 6200000, guid: 9a5a300620c882e459c727fa21213fe6, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
