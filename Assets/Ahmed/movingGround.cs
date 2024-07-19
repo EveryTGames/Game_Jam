@@ -17,6 +17,7 @@ public class movingGround : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        position = transform.position;
 
     }
     bool maybe = false;
