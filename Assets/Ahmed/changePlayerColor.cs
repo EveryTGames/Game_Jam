@@ -3,7 +3,7 @@ using UnityEngine.Rendering.Universal;
 
 public class changePlayerColor : MonoBehaviour
 {
-    ActivePlayer.colors _changeColorTo;
+  [HideInInspector] public ActivePlayer.colors _changeColorTo;
     public enum colors { red, blue, green };
     public colors changeColorTo;
 
