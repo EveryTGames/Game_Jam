@@ -52,7 +52,7 @@ public class split : MonoBehaviour
 {
     public ActivePlayer.colors thisPlayerColor = ActivePlayer.colors.green;
 
-    public int numberOfSplitestsLeft = 3;
+    public int numberOfSplitestsLeft = 0;
     public static ActivePlayer activePlayer = new ActivePlayer();
     public GameObject slime;
 
@@ -68,11 +68,13 @@ public class split : MonoBehaviour
 
             activePlayer.activePlayerObject = gameObject;
         }
-        if (playersParent == null)
+        if (playersParent == null && isTheActive)
         {
             playersParent = transform.parent;
         }
         c2D = gameObject.GetComponent<Collider2D>();
+
+        numberOfSplitestsLeft = (int)(transform.localScale.x / 4) - 1; 
     }
 
     // Update is called once per frame
@@ -206,7 +208,7 @@ public class split : MonoBehaviour
     public float dashspeedAfterSplit;
     IEnumerator splitt()
     {
-        numberOfSplitestsLeft--;
+        //numberOfSplitestsLeft--;
 
         //transform.GetChild(transform.childCount - 1).GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         yield return 0;
@@ -234,14 +236,14 @@ public class split : MonoBehaviour
         Debug.Log(newSplitted.transform.GetChild(transform.childCount - 1).position);
 
 
-        newSplitted.GetComponent<split>().numberOfSplitestsLeft = numberOfSplitestsLeft;
-        newSplitted2.GetComponent<split>().numberOfSplitestsLeft = numberOfSplitestsLeft;
+       // newSplitted.GetComponent<split>().numberOfSplitestsLeft = numberOfSplitestsLeft;
+        //newSplitted2.GetComponent<split>().numberOfSplitestsLeft = numberOfSplitestsLeft;
         newSplitted.GetComponent<split>().thisPlayerColor = thisPlayerColor;
         newSplitted2.GetComponent<split>().thisPlayerColor = thisPlayerColor;
 
 
-        newSplitted.transform.localScale = activePlayer.activePlayerObject.transform.localScale / 2;
-        newSplitted2.transform.localScale = activePlayer.activePlayerObject.transform.localScale / 2;
+        newSplitted.transform.localScale = activePlayer.activePlayerObject.transform.localScale - ( Vector3.one * 4);
+        //newSplitted2.transform.localScale = activePlayer.activePlayerObject.transform.localScale - (Vector3.one * 4);
 
         activePlayer.activePlayerObject = newSplitted2;
         activePlayer.activePlayerColor = newSplitted2.GetComponent<split>().thisPlayerColor;
@@ -256,7 +258,7 @@ public class split : MonoBehaviour
 
     IEnumerator join(Transform toJoinWith)
     {
-        numberOfSplitestsLeft++;
+      //  numberOfSplitestsLeft++;
 
         //transform.GetChild(transform.childCount - 1).GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         yield return 0;
@@ -269,7 +271,7 @@ public class split : MonoBehaviour
         //newSplitted2.transform.localPosition = Vector3.zero;
 
         Vector3 newPos = (transform.GetChild(transform.childCount - 1).position + toJoinWith.position) / 2;
-        newSplitted.transform.position = new Vector3 { x = newPos.x, y = newPos.y + transform.localScale.x - 1f };
+        newSplitted.transform.position = new Vector3 { x = newPos.x, y = newPos.y + transform.localScale.x /2 };
 
         startTime = Time.time;
         newSplitted.transform.GetChild(transform.childCount - 1).GetComponent<Rigidbody2D>().velocity = velocity * 0.5f;
@@ -282,7 +284,7 @@ public class split : MonoBehaviour
         Debug.Log(newSplitted.transform.GetChild(transform.childCount - 1).position);
 
 
-        newSplitted.GetComponent<split>().numberOfSplitestsLeft = numberOfSplitestsLeft;
+      //  newSplitted.GetComponent<split>().numberOfSplitestsLeft = numberOfSplitestsLeft;
         newSplitted.GetComponent<split>().thisPlayerColor = activePlayer + toJoinWith.parent.GetComponent<split>().thisPlayerColor;
         //                                                       ^ the current  active player                             ^  the color of the slim that the player wants to join with
 

@@ -57,12 +57,13 @@ public class movingGround : MonoBehaviour
             }
         }
         Debug.Log(maybe);
-        if(maybe || on)
+        if(maybe || on || triggers.Length == 0)
         {
             Debug.Log("it is on here too");
 
             on = true;
         }
+
         if (Mathf.Abs(Vector3.Magnitude(transform.position - position)) >= range )
         {
             speed = -speed;
