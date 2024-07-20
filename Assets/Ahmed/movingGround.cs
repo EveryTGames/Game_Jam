@@ -48,19 +48,17 @@ public class movingGround : MonoBehaviour
                 if (triggerEle.theTrigger.on)
                 {
                     maybe = true;
-                    Debug.Log("it is on");
-
+                    
                     break;
 
                 }
                 
             }
         }
-        Debug.Log(maybe);
+        
         if(maybe || on || triggers.Length == 0)
         {
-            Debug.Log("it is on here too");
-
+           
             on = true;
         }
 

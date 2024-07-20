@@ -271,7 +271,7 @@ public class split : MonoBehaviour
         //newSplitted2.transform.localPosition = Vector3.zero;
 
         Vector3 newPos = (transform.GetChild(transform.childCount - 1).position + toJoinWith.position) / 2;
-        newSplitted.transform.position = new Vector3 { x = newPos.x, y = newPos.y + transform.localScale.x /2 };
+        newSplitted.transform.position = new Vector3 { x = newPos.x, y = newPos.y + 0.8f };
 
         startTime = Time.time;
         newSplitted.transform.GetChild(transform.childCount - 1).GetComponent<Rigidbody2D>().velocity = velocity * 0.5f;
