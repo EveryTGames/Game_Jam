@@ -7,13 +7,35 @@ public class ActivePlayer
     public enum colors { red, blue, green, yellow, purble, cyan };
     public GameObject activePlayerObject;
     public colors activePlayerColor = colors.green;
-    public Color red = new Color32(163, 17, 19, 191);
-    public Color blue = new Color32(17, 32, 163, 191);
-    public Color green = new Color32(22, 163, 17, 191);
-    public Color yellow = new Color32(160, 163, 17, 191); // red + green
-    public Color purble = new Color32(163, 17, 146, 191); // red + blue
-    public Color cyan = new Color32(17, 163, 154, 191); // green + blue
+    public static Color red = new Color32(163, 17, 19, 191);
+    public static Color blue = new Color32(17, 32, 163, 191);
+    public static Color green = new Color32(22, 163, 17, 191);
+    public static Color yellow = new Color32(160, 163, 17, 191); // red + green
+    public static Color purble = new Color32(163, 17, 146, 191); // red + blue
+    public static Color cyan = new Color32(17, 163, 154, 191); // green + blue
 
+    public static Color ConvertTheColor(colors color)
+    {
+        switch (color)
+        {
+            case colors.red:
+                return red;
+            case colors.blue:
+                return blue;
+            case colors.green:
+                return green;
+            case colors.yellow:
+                return yellow;
+            case colors.purble:
+                return purble;
+            case colors.cyan:
+                return cyan;
+            default:
+                return Color.white;
+                break;
+        }
+
+    }
     public static colors operator +(ActivePlayer a, colors b)
     {
         colors ac = a.activePlayerColor;
@@ -74,7 +96,7 @@ public class split : MonoBehaviour
         }
         c2D = gameObject.GetComponent<Collider2D>();
 
-        numberOfSplitestsLeft = (int)(transform.localScale.x / 4) - 1; 
+        numberOfSplitestsLeft = (int)(transform.localScale.x / 4) - 1;
     }
 
     // Update is called once per frame
@@ -236,13 +258,13 @@ public class split : MonoBehaviour
         Debug.Log(newSplitted.transform.GetChild(transform.childCount - 1).position);
 
 
-       // newSplitted.GetComponent<split>().numberOfSplitestsLeft = numberOfSplitestsLeft;
+        // newSplitted.GetComponent<split>().numberOfSplitestsLeft = numberOfSplitestsLeft;
         //newSplitted2.GetComponent<split>().numberOfSplitestsLeft = numberOfSplitestsLeft;
         newSplitted.GetComponent<split>().thisPlayerColor = thisPlayerColor;
         newSplitted2.GetComponent<split>().thisPlayerColor = thisPlayerColor;
 
 
-        newSplitted.transform.localScale = activePlayer.activePlayerObject.transform.localScale - ( Vector3.one * 4);
+        newSplitted.transform.localScale = activePlayer.activePlayerObject.transform.localScale - (Vector3.one * 4);
         //newSplitted2.transform.localScale = activePlayer.activePlayerObject.transform.localScale - (Vector3.one * 4);
 
         activePlayer.activePlayerObject = newSplitted2;
@@ -258,7 +280,7 @@ public class split : MonoBehaviour
 
     IEnumerator join(Transform toJoinWith)
     {
-      //  numberOfSplitestsLeft++;
+        //  numberOfSplitestsLeft++;
 
         //transform.GetChild(transform.childCount - 1).GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         yield return 0;
@@ -284,7 +306,7 @@ public class split : MonoBehaviour
         Debug.Log(newSplitted.transform.GetChild(transform.childCount - 1).position);
 
 
-      //  newSplitted.GetComponent<split>().numberOfSplitestsLeft = numberOfSplitestsLeft;
+        //  newSplitted.GetComponent<split>().numberOfSplitestsLeft = numberOfSplitestsLeft;
         newSplitted.GetComponent<split>().thisPlayerColor = activePlayer + toJoinWith.parent.GetComponent<split>().thisPlayerColor;
         //                                                       ^ the current  active player                             ^  the color of the slim that the player wants to join with
 

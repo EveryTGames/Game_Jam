@@ -153,7 +153,9 @@ MonoBehaviour:
   oneWay: 0
   dampingRatio: 0.9
   frequincy: 3
-  triggers: []
+  triggers:
+  - Must: 1
+    theTrigger: {fileID: 0}
 --- !u!50 &4823572321769055799
 Rigidbody2D:
   serializedVersion: 4

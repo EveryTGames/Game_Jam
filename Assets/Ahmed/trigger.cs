@@ -25,6 +25,7 @@ public class trigger : MonoBehaviour
     {
         if (collision.CompareTag("core"))
         {
+            Debug.Log("entereed");
             split2 player = collision.transform.parent.GetComponent<split2>();
             entering(player);
         }
@@ -48,10 +49,14 @@ public class trigger : MonoBehaviour
 
     public void entering(split2 player)
     {
+        Debug.Log("leel1");
         if (needColor)
         {
+            Debug.Log("leel2");
+
             if (player.thisPlayerColor == color)
             {
+                Debug.Log("leel3");
 
                 if (oneTimeUse)
                 {
@@ -60,8 +65,14 @@ public class trigger : MonoBehaviour
                 }
                 else
                 {
+
                     on = !on;
+                    Debug.Log("leel4" + on + " "+ player.transform.gameObject.name + " " + player.transform.GetInstanceID());
                 }
+            }
+            else
+            {
+                Debug.Log("wrong color");
             }
 
         }

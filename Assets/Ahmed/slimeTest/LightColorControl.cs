@@ -18,60 +18,17 @@ public class LightColorControl : MonoBehaviour
             if (beForActive)
             {
 
-                switch (activePlayer.activePlayerColor)
-                {
-                    case ActivePlayer.colors.red:
-                        GetComponent<Light2D>().color = activePlayer.red;
-                        break;
-                    case ActivePlayer.colors.green:
-                        GetComponent<Light2D>().color = activePlayer.green;
-                        break;
-                    case ActivePlayer.colors.blue:
-                        GetComponent<Light2D>().color = activePlayer.blue;
-                        break;
-                    case ActivePlayer.colors.yellow:
-                        GetComponent<Light2D>().color = activePlayer.yellow;
-                        break;
-                    case ActivePlayer.colors.purble:
-                        GetComponent<Light2D>().color = activePlayer.purble;
-                        break;
-                    case ActivePlayer.colors.cyan:
-                        GetComponent<Light2D>().color = activePlayer.cyan;
-                        break;
-
-
-
-                }
+                        GetComponent<Light2D>().color = ActivePlayer.ConvertTheColor(activePlayer.activePlayerColor);
+                
 
             }
 
             else
             {
 
-                switch (transform.parent.parent.GetComponent<split>().thisPlayerColor)
-                {
-                    case ActivePlayer.colors.red:
-                        GetComponent<Light2D>().color = activePlayer.red;
-                        break;
-                    case ActivePlayer.colors.green:
-                        GetComponent<Light2D>().color = activePlayer.green;
-                        break;
-                    case ActivePlayer.colors.blue:
-                        GetComponent<Light2D>().color = activePlayer.blue;
-                        break;
-                    case ActivePlayer.colors.yellow:
-                        GetComponent<Light2D>().color = activePlayer.yellow;
-                        break;
-                    case ActivePlayer.colors.purble:
-                        GetComponent<Light2D>().color = activePlayer.purble;
-                        break;
-                    case ActivePlayer.colors.cyan:
-                        GetComponent<Light2D>().color = activePlayer.cyan;
-                        break;
+                        GetComponent<Light2D>().color = ActivePlayer.ConvertTheColor(transform.parent.parent.GetComponent<split>().thisPlayerColor);
 
-
-
-                }
+               
 
             }
         }
