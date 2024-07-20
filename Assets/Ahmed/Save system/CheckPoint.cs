@@ -6,10 +6,11 @@ using UnityEngine;
 public class CheckPoint : MonoBehaviour
 {
     
-
+    ParticleSystem _particleSystem;
     // Start is called before the first frame update
     void Start()
     {
+        _particleSystem = transform.GetChild(0).GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -25,7 +26,7 @@ public class CheckPoint : MonoBehaviour
         {
             if(Time.time-time >= 1) {
 
-            
+            _particleSystem.Play();
            
             GameObject.Find("EventSystem").GetComponent<loadManager>().savee();
             Debug.Log("ok it saved?");
