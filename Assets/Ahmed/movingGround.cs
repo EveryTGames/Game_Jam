@@ -11,7 +11,7 @@ public class movingGround : MonoBehaviour
     Vector3 position;
     public float waitingTime;
     float time;
-  [SerializeField]  bool on = false;
+  public  bool on = false;
 
     public bool oneWay;
     // Start is called before the first frame update
