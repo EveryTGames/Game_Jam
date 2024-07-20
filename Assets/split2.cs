@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class split2 : MonoBehaviour
@@ -17,6 +15,20 @@ public class split2 : MonoBehaviour
     void Update()
     {
         thisPlayerColor = split1.thisPlayerColor;
-        
+
     }
+    public void killthis()
+    {
+        split.tabbing();
+        Destroy(gameObject);
+    }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("traps"))
+    //    {
+    //        Debug.Log("im here");
+    //        killthis();
+    //    }
+    //}
 }

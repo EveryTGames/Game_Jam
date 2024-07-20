@@ -146,25 +146,7 @@ public class split : MonoBehaviour
         }//for splitting
         if (Input.GetKeyDown(KeyCode.Tab) && activePlayer.activePlayerObject == gameObject)
         {
-            int newIndex = activePlayer.activePlayerObject.transform.GetSiblingIndex() + 1;
-            if (newIndex >= playersParent.childCount)
-            {
-                newIndex = 0;
-            }
-            activePlayer.activePlayerObject = playersParent.GetChild(newIndex).gameObject;
-            Debug.Log(activePlayer.activePlayerObject.name);
-            try
-            {
-
-                activePlayer.activePlayerObject.transform.GetChild(transform.childCount - 1).GetComponent<movement>().enabled = true;
-                activePlayer.activePlayerObject.transform.GetChild(transform.childCount - 1).GetComponent<collision>().enabled = true;
-                activePlayer.activePlayerObject.transform.GetChild(transform.childCount - 1).GetComponent<Grapple>().enabled = true;
-
-
-            }
-            catch { }
-            activePlayer.activePlayerObject.GetComponent<split>().enabled = true;
-
+            tabbing();
         } //for switching between players
 
 
@@ -174,6 +156,36 @@ public class split : MonoBehaviour
 
             StartCoroutine(join(possibleToJoin));
         }//for rejoining
+
+    }
+
+    //return true if there were another player
+    public static bool tabbing()
+    {
+        int newIndex = activePlayer.activePlayerObject.transform.GetSiblingIndex() + 1;
+        if (newIndex >= playersParent.childCount)
+        {
+            newIndex = 0;
+        }
+        if (activePlayer.activePlayerObject.transform.GetSiblingIndex() == newIndex)
+        {
+            return false;
+        }
+
+        activePlayer.activePlayerObject = playersParent.GetChild(newIndex).gameObject;
+        Debug.Log(activePlayer.activePlayerObject.name);
+        try
+        {
+
+            activePlayer.activePlayerObject.transform.GetChild(activePlayer.activePlayerObject.transform.childCount - 1).GetComponent<movement>().enabled = true;
+            activePlayer.activePlayerObject.transform.GetChild(activePlayer.activePlayerObject.transform.childCount - 1).GetComponent<collision>().enabled = true;
+            activePlayer.activePlayerObject.transform.GetChild(activePlayer.activePlayerObject.transform.childCount - 1).GetComponent<Grapple>().enabled = true;
+
+
+        }
+        catch { }
+        activePlayer.activePlayerObject.GetComponent<split>().enabled = true;
+        return true;
 
     }
     Transform possibleToJoin;
