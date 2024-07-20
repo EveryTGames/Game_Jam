@@ -5,7 +5,7 @@ public class trigger : MonoBehaviour
 {
     public bool mustStay, needColor;
     public ActivePlayer.colors color;
-    public bool on;
+    public bool on = false;
     public bool oneTimeUse;
     public float timeAfterLeaving;
 

@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 2679261764431630571}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0098, y: 0.0518, z: 0}
-  m_LocalScale: {x: 3.8032172, y: 0.5855, z: 1}
+  m_LocalPosition: {x: 0.0006, y: 0.1182, z: 0}
+  m_LocalScale: {x: 3.8032506, y: 0.84934694, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 435264162872665732}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 7482667652216324306, guid: b872218289cf29c47a45a60dd2dc995d, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -192,7 +192,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: 043bcff4945d88e4f98afbe73c821dc1, type: 3}
   m_Color: {r: 0.040934324, g: 1, b: 0, a: 1}
   m_FlipX: 0
@@ -217,6 +217,7 @@ GameObject:
   - component: {fileID: 7390101816938184117}
   - component: {fileID: 5454517410382776464}
   - component: {fileID: 7907595335598671709}
+  - component: {fileID: 5359350116536441410}
   m_Layer: 0
   m_Name: trigger
   m_TagString: Untagged
@@ -317,7 +318,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8103376434586614536}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -399,10 +400,37 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.03125, y: 0.1875}
-      - {x: 0, y: 0.15625}
+    - - {x: 0.0625, y: 0.40625}
+      - {x: 0.03125, y: 0.375}
       - {x: 0, y: 0}
       - {x: 1, y: 0}
-      - {x: 1, y: 0.15625}
-      - {x: 0.9375, y: 0.1875}
+      - {x: 0.96875, y: 0.34375}
+      - {x: 0.90625, y: 0.40625}
   m_UseDelaunayMesh: 0
+--- !u!50 &5359350116536441410
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8103376434586614536}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
