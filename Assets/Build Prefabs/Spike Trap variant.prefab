@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7302494978838387551}
   - component: {fileID: 5103030611585067207}
   - component: {fileID: 4113084752848965140}
+  - component: {fileID: 8497334503803354389}
   m_Layer: 10
   m_Name: Spike Trap variant
   m_TagString: traps
@@ -136,3 +137,15 @@ PolygonCollider2D:
       - {x: -0.24579132, y: 0.6313132}
       - {x: -0.08754206, y: 0.00000011920929}
   m_UseDelaunayMesh: 0
+--- !u!114 &8497334503803354389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4154999720225492405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1861fc5376d9914e9364c9174140267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

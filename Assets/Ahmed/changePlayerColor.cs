@@ -19,15 +19,12 @@ public class changePlayerColor : MonoBehaviour
         {
             case colors.red:
                 _changeColorTo = ActivePlayer.colors.red;
-                spriteRenderer.color = red;
                 break;
             case colors.blue:
                 _changeColorTo = ActivePlayer.colors.blue;
-                spriteRenderer.color = blue;
                 break;
             case colors.green:
                 _changeColorTo = ActivePlayer.colors.green;
-                spriteRenderer.color = green;
                 break;
         }
 

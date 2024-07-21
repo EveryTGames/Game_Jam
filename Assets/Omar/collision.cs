@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class collision : MonoBehaviour
 {
+
+    ParticleSystem ps;
     public LayerMask groundLayer;
     public LayerMask wallLayer;
     public float collisionRadius = 0.25f;
@@ -13,7 +15,7 @@ public class collision : MonoBehaviour
     public bool onGround, onWall,onRightWall,onLeftWall;
     void Start()
     {
-        
+        ps = GetComponentInChildren<ParticleSystem>();
     }
 
     //private void OnDrawGizmos()
@@ -36,6 +38,7 @@ public class collision : MonoBehaviour
     {
         if (other.CompareTag("Groundd"))
         {
+            ps.Play();
             onGround = true;
         }
     }
@@ -50,6 +53,7 @@ public class collision : MonoBehaviour
     {
         if (other.CompareTag("Groundd"))
         {
+            ps.Play();
             onGround = false;
         }
     }
