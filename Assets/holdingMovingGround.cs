@@ -1,28 +1,40 @@
-using System;
 using UnityEngine;
 
 public class holdingMovingGround : MonoBehaviour
 {
-    public float speed;
     public float range;
-    [Tooltip("if horizontal is true then the ground will be horizontally if not then it will move vertically")]
+    Vector3 finalPosotion;
+    Vector3 startPosition;
     public bool horizontal;
-    Vector3 position;
-    public float waitingTime;
-    
-    public bool on = false;
+    public float speed;
 
-   
+
+    public triggers[] triggers;
+
     // Start is called before the first frame update
     void Start()
     {
-        position = transform.position;
 
+        if (horizontal)
+        {
+            finalPosotion = new Vector3 { x = range } + transform.position;
+
+        }
+        else
+        {
+            finalPosotion = new Vector3 { y = range } + transform.position;
+
+
+        }
+        startPosition = transform.position;
     }
-    bool maybe = false;
-    bool canMove = true;
-    private void Update()
+    bool maybe, on;
+    bool theTargetIsFinal = true;
+    bool stopMoving;
+    // Update is called once per frame
+    void Update()
     {
+
         maybe = false;
         on = false;
         foreach (triggers triggerEle in triggers)
@@ -32,7 +44,7 @@ public class holdingMovingGround : MonoBehaviour
                 if (!triggerEle.theTrigger.on)
                 {
                     on = false;
-                    return;
+                    break;
 
                 }
                 else
@@ -61,86 +73,46 @@ public class holdingMovingGround : MonoBehaviour
             on = true;
         }
 
-        if (Mathf.Abs(Vector3.Magnitude(transform.position - position)) >= range)
-        {
-            speed = -speed;
-            position = transform.position;
-            time = Time.time;
 
-            if (oneWay)
-            {
-                canMove = false;
-            }
+
+        if (Mathf.Approximately(Vector3.Distance(transform.position, finalPosotion), 0))
+        {
+            transform.position = finalPosotion;
+            theTargetIsFinal = false;
+        }
+        if (Mathf.Approximately(Vector3.Distance(transform.position, startPosition), 0))
+        {
+            transform.position = startPosition;
+            theTargetIsFinal = false;
+
         }
     }
-    // Update is called once per frame
-    void FixedUpdate()
+
+    private void FixedUpdate()
     {
         if (!on)
         {
-            return;
+            theTargetIsFinal = false;
         }
-        if (Time.time - time >= waitingTime && canMove)
+        if (stopMoving)
         {
 
-            if (horizontal)
+            if (theTargetIsFinal)
             {
-                transform.position += new Vector3 { x = speed * Time.deltaTime };
+                transform.Translate(finalPosotion.normalized * speed);
             }
             else
             {
-                transform.position += new Vector3 { y = speed * Time.deltaTime };
+                transform.Translate(startPosition.normalized * speed);
 
             }
         }
 
+
     }
+
     public GameObject lr;
 
-    public float dampingRatio, frequincy;
-    public triggers[] triggers;
-    /// <summary>
-    /// send the rigidbody of the core
-    /// </summary>
-    /// <param name="rb"></param>
-    public void stick(Rigidbody2D rb)
-    {
-
-        //Debug.Log("eneterd");
-        ////adding the joint to the player and connecting it 
-        //SpringJoint2D xx = gameObject.AddComponent<SpringJoint2D>();
-
-        //xx.connectedBody = rb;
-        //xx.autoConfigureConnectedAnchor = false;
-        //xx.connectedAnchor = rb.transform.position;
-        //xx.autoConfigureDistance = true;
-
-        //xx.dampingRatio = dampingRatio;
-        //xx.frequency = frequincy;
-
-    }
-
-    /// <summary>
-    /// send the rigidbody of the core
-    /// </summary>
-    /// <param name="rb"></param>
-    public void unstick(Rigidbody2D rb)
-    {
-
-
-
-        //Debug.Log("left");
-
-        //SpringJoint2D[] springs = GetComponentsInChildren<SpringJoint2D>();
-        //foreach (SpringJoint2D spring in springs)
-        //{
-        //    if (rb == spring.connectedBody)
-        //    {
-        //        Destroy(spring);
-        //        return;
-        //    }
-        //}
-    }
     bool instantiated;
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -173,5 +145,4 @@ public class holdingMovingGround : MonoBehaviour
 
         }
     }
-
 }

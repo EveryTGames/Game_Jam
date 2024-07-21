@@ -42,10 +42,11 @@ GameObject:
   - component: {fileID: 563084457789108255}
   - component: {fileID: 5497062771566594497}
   - component: {fileID: 5424190646253177112}
+  - component: {fileID: 8092863351954923998}
   - component: {fileID: 4823572321769055799}
-  - component: {fileID: 2752929684259885959}
+  - component: {fileID: -4400289658862914564}
   m_Layer: 6
-  m_Name: holding MovingGround
+  m_Name: holdingmoving ground 1
   m_TagString: Groundd
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,6 +166,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8092863351954923998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4051324558323644168}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7deebea0c0429e489b719b907ae4f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  range: 5
+  horizontal: 1
+  waitingTime: 2
+  on: 1
+  oneWay: 0
+  needsHold: 0
+  lr: {fileID: 715114316634423467, guid: 5ed98e5f0c03b634ebeb2bbd7f0e9198, type: 3}
+  dampingRatio: 0.9
+  frequincy: 3
+  triggers:
+  - Must: 1
+    theTrigger: {fileID: 0}
 --- !u!50 &4823572321769055799
 Rigidbody2D:
   serializedVersion: 4
@@ -192,7 +218,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2752929684259885959
+--- !u!114 &-4400289658862914564
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

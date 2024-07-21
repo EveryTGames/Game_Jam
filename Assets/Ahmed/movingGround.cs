@@ -13,11 +13,12 @@ public class movingGround : MonoBehaviour
     public bool on = false;
 
     public bool oneWay;
+    float orignalRange;
     // Start is called before the first frame update
     void Start()
     {
         position = transform.position;
-
+        orignalRange = range;
     }
     bool maybe = false;
     bool canMove = true;
@@ -32,7 +33,7 @@ public class movingGround : MonoBehaviour
                 if (!triggerEle.theTrigger.on)
                 {
                     on = false;
-                    return;
+                    break;
 
                 }
                 else
@@ -61,6 +62,7 @@ public class movingGround : MonoBehaviour
             on = true;
         }
 
+
         if (Mathf.Abs(Vector3.Magnitude(transform.position - position)) >= range)
         {
             speed = -speed;
@@ -72,10 +74,57 @@ public class movingGround : MonoBehaviour
                 canMove = false;
             }
         }
+        else if (!on && needsHold)
+        {
+
+            speed = -speed;
+            position = transform.position;
+            range = tempRange;
+            tempRange = 0;
+            time = Time.time;
+
+            if (oneWay)
+            {
+                canMove = false;
+            }
+        }
     }
+    public bool needsHold;
+    float tempRange;
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (oneWay && !canMove && needsHold && !on)
+        {
+            if (Mathf.Abs(Vector3.Magnitude(transform.position - position)) >= range)
+            {
+                speed = -speed;
+                position = transform.position;
+                time = Time.time;
+                range = orignalRange;
+                if (oneWay)
+                {
+                    canMove = true;
+                }
+
+            }
+            else
+            {
+
+
+                if (horizontal)
+                {
+                    transform.position += new Vector3 { x = speed * Time.deltaTime };
+                }
+                else
+                {
+                    transform.position += new Vector3 { y = speed * Time.deltaTime };
+
+                }
+            }
+
+
+        }
         if (!on)
         {
             return;
@@ -86,13 +135,19 @@ public class movingGround : MonoBehaviour
             if (horizontal)
             {
                 transform.position += new Vector3 { x = speed * Time.deltaTime };
+
             }
             else
             {
                 transform.position += new Vector3 { y = speed * Time.deltaTime };
 
             }
+            if (needsHold)
+            {
+                tempRange += speed * Time.deltaTime;
+            }
         }
+
 
     }
     public GameObject lr;
@@ -146,12 +201,12 @@ public class movingGround : MonoBehaviour
     {
         if (collision.gameObject.layer == 8)//layer of slime
         {
-            if(!instantiated)
+            if (!instantiated)
             {
-                foreach(triggers trigerEle in triggers)
+                foreach (triggers trigerEle in triggers)
                 {
                     Color toAdd = (trigerEle.Must) ? Color.red : Color.white;
-                    Instantiate(lr, transform.GetChild(1)).GetComponent<lineManager>().setTaget(trigerEle.theTrigger.transform, transform,toAdd);
+                    Instantiate(lr, transform.GetChild(1)).GetComponent<lineManager>().setTaget(trigerEle.theTrigger.transform, transform, toAdd);
                 }
                 instantiated = true;
             }
@@ -164,7 +219,7 @@ public class movingGround : MonoBehaviour
         {
             if (instantiated)
             {
-                for (int  i = 0;  i <transform.GetChild(1).childCount;  i++)
+                for (int i = 0; i < transform.GetChild(1).childCount; i++)
                 {
                     Destroy(transform.GetChild(1).GetChild(i).gameObject);
                 }
