@@ -24,7 +24,7 @@ public class CheckPoint : MonoBehaviour
     {
         if(collision.CompareTag("core")  )
         {
-            if(Time.time-time >= 1) {
+            if(Time.time-time >= 10) {
 
             _particleSystem.Play();
            
