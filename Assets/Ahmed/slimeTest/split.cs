@@ -98,7 +98,7 @@ public class split : MonoBehaviour
 
         numberOfSplitestsLeft = (int)(transform.localScale.x / 4) - 1;
     }
-
+    public GameObject PauseMenu;
     // Update is called once per frame
     void Update()
     {
@@ -157,6 +157,29 @@ public class split : MonoBehaviour
             StartCoroutine(join(possibleToJoin));
         }//for rejoining
 
+
+
+        // for the pause Menu
+        if (Input.GetKeyDown(KeyCode.Escape) && activePlayer.activePlayerObject == gameObject)
+        {
+            pause();
+
+        }
+    }
+    bool paused = false;
+    private void pause()
+    {
+        paused = !paused;
+        PauseMenu.SetActive(paused);
+        if (paused)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+
+            Time.timeScale = 1f;
+        }
     }
 
     //return true if there were another player
