@@ -1,15 +1,18 @@
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class lineManager : MonoBehaviour
 {
     LineRenderer lineRenderer;
-    Vector3 target;
+    Transform target;
     Transform start;
-    public void setTaget(Vector3 target, Transform start)
+    Vector3 offset;
+    public void setTaget(Transform target, Transform start,[Optional]Vector3 offset)
     {
 
         this.target = target;
         this.start = start;
+        this.offset = offset;
 
     }
     public void ditatch( Transform start)
@@ -32,7 +35,7 @@ public class lineManager : MonoBehaviour
         {
 
             lineRenderer.SetPosition(0, start.position);
-            lineRenderer.SetPosition(1, target);
+            lineRenderer.SetPosition(1, target.position + offset);
         }
 
     }

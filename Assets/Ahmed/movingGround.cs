@@ -1,5 +1,4 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class movingGround : MonoBehaviour
@@ -11,7 +10,7 @@ public class movingGround : MonoBehaviour
     Vector3 position;
     public float waitingTime;
     float time;
-  public  bool on = false;
+    public bool on = false;
 
     public bool oneWay;
     // Start is called before the first frame update
@@ -26,15 +25,15 @@ public class movingGround : MonoBehaviour
     {
         maybe = false;
         on = false;
-        foreach(triggers triggerEle in triggers)
+        foreach (triggers triggerEle in triggers)
         {
-            if(triggerEle.Must)
+            if (triggerEle.Must)
             {
-                if(!triggerEle.theTrigger.on)
+                if (!triggerEle.theTrigger.on)
                 {
                     on = false;
                     return;
-                    
+
                 }
                 else
                 {
@@ -48,27 +47,27 @@ public class movingGround : MonoBehaviour
                 if (triggerEle.theTrigger.on)
                 {
                     maybe = true;
-                    
+
                     break;
 
                 }
-                
+
             }
         }
-        
-        if(maybe || on || triggers.Length == 0)
+
+        if (maybe || on || triggers.Length == 0)
         {
-           
+
             on = true;
         }
 
-        if (Mathf.Abs(Vector3.Magnitude(transform.position - position)) >= range )
+        if (Mathf.Abs(Vector3.Magnitude(transform.position - position)) >= range)
         {
             speed = -speed;
             position = transform.position;
             time = Time.time;
 
-            if(oneWay)
+            if (oneWay)
             {
                 canMove = false;
             }
@@ -77,7 +76,7 @@ public class movingGround : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(!on)
+        if (!on)
         {
             return;
         }
@@ -97,7 +96,7 @@ public class movingGround : MonoBehaviour
 
     }
 
-    
+
     public float dampingRatio, frequincy;
     public triggers[] triggers;
     /// <summary>
@@ -131,7 +130,7 @@ public class movingGround : MonoBehaviour
 
 
         //Debug.Log("left");
-        
+
         //SpringJoint2D[] springs = GetComponentsInChildren<SpringJoint2D>();
         //foreach (SpringJoint2D spring in springs)
         //{
@@ -142,16 +141,24 @@ public class movingGround : MonoBehaviour
         //    }
         //}
     }
+    bool instantiated;
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 8)//layer of slime
+        {
+
+        }
+    }
 
 
 }
 [Serializable]
 public class triggers
 {
-    
+
 
     public bool Must;
-    
+
 
     public trigger theTrigger;
 }
