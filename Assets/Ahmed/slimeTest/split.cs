@@ -102,6 +102,16 @@ public class split : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // for the pause Menu
+        if (Input.GetKeyDown(KeyCode.Escape) && activePlayer.activePlayerObject == gameObject)
+        {
+            pause();
+
+        }
+        if(paused)
+        {
+            return;
+        }
         if (activePlayer.activePlayerObject != gameObject)
         { //no active
             isTheActive = false;
@@ -159,15 +169,10 @@ public class split : MonoBehaviour
 
 
 
-        // for the pause Menu
-        if (Input.GetKeyDown(KeyCode.Escape) && activePlayer.activePlayerObject == gameObject)
-        {
-            pause();
-
-        }
+       
     }
-    bool paused = false;
-    private void pause()
+   public bool paused = false;
+    public void pause()
     {
         paused = !paused;
         PauseMenu.SetActive(paused);
