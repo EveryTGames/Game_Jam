@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class split2 : MonoBehaviour
@@ -10,11 +11,12 @@ public class split2 : MonoBehaviour
     {
         split1 = GetComponent<split>();
     }
-
+    public List<Color> colors;
     // Update is called once per frame
     void Update()
     {
         thisPlayerColor = split1.thisPlayerColor;
+        colors = staticSlimes.colorList();
 
     }
     public void killthis()

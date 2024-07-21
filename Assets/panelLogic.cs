@@ -17,7 +17,8 @@ public class panelLogic : MonoBehaviour
     
     void Start()
     {
-        images = gameObject.transform.GetComponentsInChildren<Image>();
+        images = gameObject.transform.GetComponentsInChildren<Image>().Where((t,i)=>i>0).ToArray();
+       
         mp = new Dictionary<Color, Sprite>
         {
             { ActivePlayer.red, redT },
@@ -43,7 +44,8 @@ public class panelLogic : MonoBehaviour
             images[i].sprite = mp[l[i]];
 
         }
-        for (int j = i + 1; j < images.Length; j++)
+        Debug.Log(i);
+        for (int j = i ; j < images.Length; j++)
         {
             images[j].sprite = none;
             images[j].enabled = false;

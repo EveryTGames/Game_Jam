@@ -12,6 +12,7 @@ TagManager:
   - ground
   - movingGround
   - traps
+  - pauseMenue
   layers:
   - Default
   - TransparentFX
