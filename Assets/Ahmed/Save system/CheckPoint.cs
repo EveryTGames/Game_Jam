@@ -24,11 +24,12 @@ public class CheckPoint : MonoBehaviour
     {
         if(collision.CompareTag("core")  )
         {
-            if(Time.time-time >= 10) {
+            if(Time.time-time >= 30) {
 
             _particleSystem.Play();
-           
+            time = Time.time;
             GameObject.Find("EventSystem").GetComponent<loadManager>().savee();
+                GetComponent<AudioSource>().Play();
             Debug.Log("ok it saved?");
             }
            

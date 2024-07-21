@@ -181,8 +181,9 @@ MonoBehaviour:
   range: 5
   horizontal: 1
   waitingTime: 2
-  on: 1
-  oneWay: 0
+  on: 0
+  oneWay: 1
+  needsHold: 0
   lr: {fileID: 715114316634423467, guid: 5ed98e5f0c03b634ebeb2bbd7f0e9198, type: 3}
   dampingRatio: 0.9
   frequincy: 3

@@ -13,6 +13,7 @@ public class loadManager : MonoBehaviour
     //  public  GameObject colorOrbs;
     public Transform playersParent;
     public Transform otherSlimesParent;
+    public Transform triggersParent;
     //public CheckPoint lastCheck;
     
   
@@ -24,7 +25,7 @@ public class loadManager : MonoBehaviour
         {
            
 
-            saving.realLoad(otherSlimesParent, slime_Prefab, playersParent);
+            saving.realLoad(otherSlimesParent, slime_Prefab, playersParent,triggersParent);
 
         }
         catch (Exception e)
@@ -44,7 +45,7 @@ public class loadManager : MonoBehaviour
     public void savee()
     {
       
-        saving.realSave(otherSlimesParent, playersParent);
+        saving.realSave(otherSlimesParent, playersParent,triggersParent);
 
     }
     private void Update()

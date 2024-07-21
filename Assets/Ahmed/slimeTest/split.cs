@@ -97,12 +97,13 @@ public class split : MonoBehaviour
         c2D = gameObject.GetComponent<Collider2D>();
 
         numberOfSplitestsLeft = (int)(transform.localScale.x / 4) - 1;
-        PauseMenu = GameObject.FindWithTag("pauseMenue");
+        PauseMenu = GameObject.FindObjectOfType<pauseMenue>(true).gameObject;
     }
      GameObject PauseMenu;
     // Update is called once per frame
     void Update()
     {
+
         // for the pause Menu
         if (Input.GetKeyDown(KeyCode.Escape) && activePlayer.activePlayerObject == gameObject)
         {

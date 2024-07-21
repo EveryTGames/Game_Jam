@@ -32,7 +32,7 @@ public class spike : MonoBehaviour
                 {
                     Debug.Log("game Over");
                     //Destroy(collision.transform.parent.gameObject);
-                    Fadeing.fading.fadeOut(SceneManager.GetActiveScene().name);
+                    Fadeing.fading.fadeOut(SceneManager.GetActiveScene().buildIndex);
                 }
             }
             else

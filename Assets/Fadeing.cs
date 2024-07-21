@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class Fadeing : MonoBehaviour
 {
     public static Fadeing fading;
-    string nextSceneName;
+    int nextSceneName;
     Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -25,10 +25,10 @@ public class Fadeing : MonoBehaviour
     {
         animator.SetBool("in", true);
     }
-    public void fadeOut(string _nextSceneName)
+    public void fadeOut(int _nextSceneIndex)
     {
         animator.SetBool("in", false);
-        nextSceneName = _nextSceneName;
+        nextSceneName = _nextSceneIndex;
     }
     public void load()
     {

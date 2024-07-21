@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
@@ -52,7 +53,7 @@ public class saving : ScriptableObject
     static List<int> childs = new List<int>();
 
     public static float globalAllTime = 0;
-    public static void realSave(Transform otherSlimes, Transform playersParent)
+    public static void realSave(Transform otherSlimes, Transform playersParent,Transform triggersParent)
     {
 
         // GameObject[] deads = GameObject.FindGameObjectsWithTag("dead");
@@ -95,6 +96,11 @@ public class saving : ScriptableObject
         }
 
 
+        //the below is for the objects in treggers
+
+        List<bool> triggers = triggersParent.GetComponentsInChildren<trigger>().Select((t) => t.on).ToList();
+      
+        obj.triggers = triggers;
 
 
         //Debug.Log("saved this in the file" + obj.newSave + "and this the real value" + Controler.newSave);
@@ -108,7 +114,7 @@ public class saving : ScriptableObject
     }
 
     public GameObject prefab;
-    public static void realLoad(Transform otherSlimsParent, GameObject slimePrefab, Transform playersParent)
+    public static void realLoad(Transform otherSlimsParent, GameObject slimePrefab, Transform playersParent, Transform triggersParent)
     {
         pp obj = new pp();
         obj = JsonUtility.FromJson<pp>(File.ReadAllText(Path.Combine(Application.dataPath, "Resources/" + "saves.txt")));
@@ -136,6 +142,12 @@ public class saving : ScriptableObject
         }
 
         //Debug.Log(obj.childNumber);
+
+        //thsi is for triggers
+        for (int i  = 0; i  < obj.triggers.Count; i++)
+        {
+            triggersParent.GetChild(i).GetComponent<trigger>().on = obj.triggers[i];
+        }
     }
 
 
@@ -186,7 +198,7 @@ class pp
     // public List<corpse> corpsPositions = new List<corpse>();
 
 
-
+    public List<bool> triggers = new List<bool>();
 
     // public bool hardCore;
     // public double allTime;

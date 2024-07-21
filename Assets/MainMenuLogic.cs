@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuLogic : MonoBehaviour
@@ -24,15 +26,20 @@ public class MainMenuLogic : MonoBehaviour
     void continueLogic()
     {
 
-
+        Debug.Log("asd");
+        Fadeing.fading.fadeOut(1);
     }
     void newSaveLogic()
     {
 
+        string originalSave = File.ReadAllText(Path.Combine(Application.dataPath, "Resources/" + "orignal_saves.txt"));
+         File.WriteAllText(Path.Combine(Application.dataPath, "Resources/" + "saves.txt"), originalSave);
+        Fadeing.fading.fadeOut(1);
 
     }
     void exitLogic()
     {
+        Application.Quit();
  
     }
     void startAnim(string type)

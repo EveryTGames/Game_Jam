@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class buttons : MonoBehaviour
 {
@@ -24,10 +25,14 @@ public class buttons : MonoBehaviour
     }
     public void ReloadLastCheckPoint()
     {
-
+        Time.timeScale = 1;
+        Fadeing.fading.fadeOut(SceneManager.GetActiveScene().buildIndex);
     }
     public void MainMenu()
     {
+        Time.timeScale = 1;
+
+        SceneManager.LoadScene(0);
 
 
     }

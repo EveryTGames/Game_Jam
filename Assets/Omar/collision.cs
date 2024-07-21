@@ -38,21 +38,26 @@ public class collision : MonoBehaviour
     {
         if (other.CompareTag("Groundd"))
         {
+            //GetComponent<AudioSource>().Play();
             ps.Play();
             onGround = true;
         }
     }
     private void OnTriggerStay2D(Collider2D other)
     {
+
         if (other.CompareTag("Groundd"))
         {
             onGround = true;
         }
     }
+    public AudioClip jumpSound;
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Groundd"))
         {
+           // GetComponent<AudioSource>().Stop();
+            playerSounds.playonce(jumpSound);
             ps.Play();
             onGround = false;
         }

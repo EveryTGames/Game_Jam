@@ -28,7 +28,7 @@ public class holdingMovingGround : MonoBehaviour
         }
         startPosition = transform.position;
     }
-    bool maybe, on;
+    public bool maybe, on;
     bool theTargetIsFinal = true;
     bool stopMoving;
     // Update is called once per frame
@@ -78,32 +78,43 @@ public class holdingMovingGround : MonoBehaviour
         if (Mathf.Approximately(Vector3.Distance(transform.position, finalPosotion), 0))
         {
             transform.position = finalPosotion;
-            theTargetIsFinal = false;
+
+            if (on)
+            {
+                stopMoving = true;
+            }
+            else
+            {
+                stopMoving = false;
+            }
         }
         if (Mathf.Approximately(Vector3.Distance(transform.position, startPosition), 0))
         {
             transform.position = startPosition;
-            theTargetIsFinal = false;
+
+            if (!on)
+            {
+                stopMoving = true;
+            }
+            else
+            { stopMoving = false; }
 
         }
     }
 
     private void FixedUpdate()
     {
-        if (!on)
-        {
-            theTargetIsFinal = false;
-        }
+       
         if (stopMoving)
         {
 
             if (theTargetIsFinal)
             {
-                transform.Translate(finalPosotion.normalized * speed);
+                transform.Translate((finalPosotion - transform.position).normalized * speed);
             }
             else
             {
-                transform.Translate(startPosition.normalized * speed);
+                transform.Translate((finalPosotion - transform.position).normalized * speed);
 
             }
         }
