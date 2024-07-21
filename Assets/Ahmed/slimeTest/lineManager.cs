@@ -31,11 +31,9 @@ public class lineManager : MonoBehaviour
         if (color != new Color())
         {
             
-            for (int i = 0; i < lineRenderer.colorGradient.colorKeys.Length; i++)
-            {
+            lineRenderer.startColor = color;
+            lineRenderer.endColor = color;
 
-                lineRenderer.colorGradient.colorKeys[i].color = color;
-            }
         }
 
     }
