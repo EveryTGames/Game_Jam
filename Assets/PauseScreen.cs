@@ -8,6 +8,7 @@ public class PauseScreen : MonoBehaviour
     public float waitTime = 4f;
     public Button continueB, reloadCheckPointB, mainMenuB;
     public Animator continueAnim, reloadCheckPointAnim, mainMenuAnim;
+    AudioSource aud;
     void Start()
     {
         continueAnim.enabled = false;
@@ -16,6 +17,7 @@ public class PauseScreen : MonoBehaviour
         continueB.onClick.AddListener(continueCall);
         reloadCheckPointB.onClick.AddListener(newSaveCall);
         mainMenuB.onClick.AddListener(exitCall);
+        aud = GetComponent<AudioSource>();
     }
     void continueLogic()
     {
@@ -36,14 +38,18 @@ public class PauseScreen : MonoBehaviour
         if (type == "continue")
         {
             continueAnim.enabled = true;
+            aud.Play();
         }
         else if (type == "reload")
         {
             reloadCheckPointAnim.enabled = true;
+            aud.Play();
+
         }
         else if (type == "mainMenu")
         {
             mainMenuAnim.enabled = true;
+            aud.Play();
         }
     }
 
