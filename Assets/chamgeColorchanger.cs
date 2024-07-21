@@ -8,19 +8,19 @@ public class chamgeColorchanger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        trigger = transform.parent.parent.GetComponent<changePlayerColor>();
+        trigger = transform.GetComponentInParent<changePlayerColor>();
         ps = transform.GetComponentInChildren<ParticleSystem>().main;
 
         sr = transform.parent.GetComponent<SpriteRenderer>();
 
 
-        sr.color = ActivePlayer.ConvertTheColor(trigger._changeColorTo);
-        ps.startColor = sr.color;
     }
 
     // Update is called once per frame
     void Update()
     {
+        sr.color = ActivePlayer.ConvertTheColor(trigger._changeColorTo);
+        ps.startColor = sr.color;
 
     }
 }
