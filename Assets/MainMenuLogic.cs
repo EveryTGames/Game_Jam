@@ -8,14 +8,18 @@ public class MainMenuLogic : MonoBehaviour
     public float waitTime = 4f;
     public Button continueB,newSaveB,exitB;
     public Animator continueAnim,newSaveAnim,exitAnim;
+    AudioSource aud;
+
     void Start()
     {
-        continueAnim.enabled = false;
-        newSaveAnim.enabled = false;
-        exitAnim.enabled = false;
+
         continueB.onClick.AddListener(continueCall);
         newSaveB.onClick.AddListener(newSaveCall);
         exitB.onClick.AddListener(exitCall);
+        aud = GetComponent<AudioSource>();
+        
+
+
     }
     void continueLogic()
     {
@@ -36,14 +40,20 @@ public class MainMenuLogic : MonoBehaviour
         if (type == "continue")
         {
             continueAnim.enabled = true;
+            aud.Play();
+
         }
         else if (type == "save")
         {
             newSaveAnim.enabled= true;
+            aud.Play();
+
         }
         else if (type == "exit")
         {
             exitAnim.enabled= true;
+            aud.Play();
+
         }
     }
 

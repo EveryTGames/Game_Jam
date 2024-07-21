@@ -11,13 +11,11 @@ public class PauseScreen : MonoBehaviour
     AudioSource aud;
     void Start()
     {
-        continueAnim.enabled = false;
-        reloadCheckPointAnim.enabled = false;
-        mainMenuAnim.enabled = false;
         continueB.onClick.AddListener(continueCall);
         reloadCheckPointB.onClick.AddListener(newSaveCall);
         mainMenuB.onClick.AddListener(exitCall);
         aud = GetComponent<AudioSource>();
+
     }
     void continueLogic()
     {
