@@ -84,7 +84,7 @@ public class split : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+       
         if (activePlayer.activePlayerObject == null && isTheActive)
         {
 
@@ -188,6 +188,7 @@ public class split : MonoBehaviour
         }
     }
 
+    
     //return true if there were another player
     public static bool tabbing()
     {

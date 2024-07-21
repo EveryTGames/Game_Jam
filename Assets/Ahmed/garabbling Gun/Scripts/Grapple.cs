@@ -55,7 +55,7 @@ public class Grapple : MonoBehaviour
                 lineManager lm = Instantiate(lrPrefab).GetComponent<lineManager>();
 
                Vector3 offset = hit.transform.InverseTransformPoint(hitPoint);
-                lm.setTaget(hit.collider.transform, transform,offset);
+                lm.setTaget(hit.collider.transform, transform,offset: offset);
                 lines.Add(lm);
 
 

@@ -11,6 +11,10 @@ public class staticSlimes : MonoBehaviour
      return   s.transform.GetComponentsInChildren<split2>().Select((t) =>ActivePlayer.ConvertTheColor( t.thisPlayerColor)).ToList();
         
     }
+    public static int activeIndex()
+    {
+        return split.activePlayer.activePlayerObject.transform.GetSiblingIndex();
+    }
     // Start is called before the first frame update
     void Start()
     {

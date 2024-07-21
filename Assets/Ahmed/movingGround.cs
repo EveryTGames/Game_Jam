@@ -95,7 +95,7 @@ public class movingGround : MonoBehaviour
         }
 
     }
-
+    public GameObject lr;
 
     public float dampingRatio, frequincy;
     public triggers[] triggers;
@@ -146,10 +146,33 @@ public class movingGround : MonoBehaviour
     {
         if (collision.gameObject.layer == 8)//layer of slime
         {
+            if(!instantiated)
+            {
+                foreach(triggers trigerEle in triggers)
+                {
+                    Color toAdd = (trigerEle.Must) ? Color.red : Color.white;
+                    Instantiate(lr, transform.GetChild(1)).GetComponent<lineManager>().setTaget(trigerEle.theTrigger.transform, transform,toAdd);
+                }
+                instantiated = true;
+            }
 
         }
     }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 8)//layer of slime
+        {
+            if (instantiated)
+            {
+                for (int  i = 0;  i <transform.GetChild(1).childCount;  i++)
+                {
+                    Destroy(transform.GetChild(1).GetChild(i).gameObject);
+                }
+                instantiated = false;
+            }
 
+        }
+    }
 
 }
 [Serializable]

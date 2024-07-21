@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
@@ -7,18 +8,19 @@ public class lineManager : MonoBehaviour
     Transform target;
     Transform start;
     Vector3 offset;
-    public void setTaget(Transform target, Transform start,[Optional]Vector3 offset)
+    Color color;
+    public void setTaget(Transform target, Transform start,  [Optional] Color color, [Optional] Vector3 offset)
     {
 
         this.target = target;
         this.start = start;
         this.offset = offset;
-
+        this.color = color;
     }
-    public void ditatch( Transform start)
+    public void ditatch(Transform start)
     {
 
-       
+
         this.start = start;
 
     }
@@ -26,6 +28,16 @@ public class lineManager : MonoBehaviour
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
+        if (color != new Color())
+        {
+            
+            for (int i = 0; i < lineRenderer.colorGradient.colorKeys.Length; i++)
+            {
+
+                lineRenderer.colorGradient.colorKeys[i].color = color;
+            }
+        }
+
     }
 
     // Update is called once per frame

@@ -89,7 +89,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1bd4f61cefb8c0e49b93577d773c994a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.097764134, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -196,6 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisPlayerColor: 2
+  colors: []
 --- !u!1 &2718410208933467469
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,7 +614,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -397996
+  m_InstanceId: -436328
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -5713,7 +5714,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -397964
+  m_InstanceId: -436296
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -5912,7 +5913,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -398076
+  m_InstanceId: -436408
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -6111,7 +6112,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -397932
+  m_InstanceId: -436264
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -6310,7 +6311,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -397948
+  m_InstanceId: -436280
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -6509,7 +6510,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -398044
+  m_InstanceId: -436376
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -6708,7 +6709,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -397980
+  m_InstanceId: -436312
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -6907,7 +6908,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -398028
+  m_InstanceId: -436360
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -7106,7 +7107,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -398060
+  m_InstanceId: -436392
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
@@ -7305,7 +7306,7 @@ MonoBehaviour:
   - {x: 0.013707244, y: -0.041618355, z: 0}
   m_ShapePathHash: -670653271
   m_Mesh: {fileID: 0}
-  m_InstanceId: -398012
+  m_InstanceId: -436344
   m_LocalBounds:
     m_Center: {x: 0.023507295, y: 0.0072667077, z: 0}
     m_Extent: {x: 0.031616073, y: 0.06914559, z: 0}
