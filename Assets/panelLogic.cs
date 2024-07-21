@@ -44,13 +44,13 @@ public class panelLogic : MonoBehaviour
             images[i].sprite = mp[l[i]];
 
         }
-        Debug.Log(i);
+      
         for (int j = i ; j < images.Length; j++)
         {
             images[j].sprite = none;
             images[j].enabled = false;
         }
-        Debug.Log(l.Count);
+      
 
 
     }
