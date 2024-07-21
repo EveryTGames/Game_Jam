@@ -11,6 +11,7 @@ public class panelLogic : MonoBehaviour
     // Start is called before the first frame update
     Image []images;
     public Sprite redT,greenT,blueT,purpleT,yellowT,cyanT,none;
+    Vector2 orignalS;
     Dictionary<Color, Sprite> mp;
 
     int pt = 0;
@@ -28,6 +29,7 @@ public class panelLogic : MonoBehaviour
             { ActivePlayer.cyan, cyanT },
             { ActivePlayer.yellow, yellowT }
         };
+        orignalS = images[0].transform.localScale;
 
 
     }
@@ -36,18 +38,25 @@ public class panelLogic : MonoBehaviour
     void Update()
     {
         List<Color> l = staticSlimes.colorList();
+        int idx = staticSlimes.activeIndex();
         int i = 0;
 
         for (; i < l.Count && i < images.Length; i++)
         {
             images[i].enabled = true;
             images[i].sprite = mp[l[i]];
+            images[i].transform.localScale = orignalS;
+            if(i == idx)
+            {
+                images[i].transform.localScale = new Vector2(0.84f,0.84f);
+            }
 
         }
       
         for (int j = i ; j < images.Length; j++)
         {
             images[j].sprite = none;
+            images[i].transform.localScale = orignalS;
             images[j].enabled = false;
         }
       
