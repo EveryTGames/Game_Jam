@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Ahmed/my test.unity
     guid: 6c1b69f90c9816645ba8b2e19b529d7b
+  - enabled: 1
+    path: Assets/Won SCreen.unity
+    guid: f17dfb05950ce7a4ba503b914cee8ea8
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 323a6992e2343254aa74ca5bce730918, type: 2}
